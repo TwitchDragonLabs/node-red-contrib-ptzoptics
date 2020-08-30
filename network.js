@@ -9,6 +9,7 @@ module.exports = function(RED)
         this.port = config.port;
         this.deviceId = config.deviceId;
         this.server = require("./tcp.js").object();
+	this.shutUp = config.shutUp;
         this.nodes = [];
         var network = this;
         var commands = require("./commands.js");
