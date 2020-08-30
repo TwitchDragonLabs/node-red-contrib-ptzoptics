@@ -43,8 +43,8 @@ module.exports = function(RED)
                 case "cannot send": nodeText = "Cannot Send"; errorText = "Not Connected Cannot Send!"; break;
                 default: nodeText = "Unknown Error"; errorText = "Unknown Error: " + error + ", " + description; break;
             }
-
-            RED.log.error(errorText.toString());
+	    if (!this.shutUp)
+            	RED.log.error(errorText.toString());
             sendStatus(network, "red", nodeText.toString());
         });
       
